@@ -1,10 +1,11 @@
 import { Component } from '@angular/core'
 
 @Component({
-    selector : 'container-report',
-    templateUrl : './pages/report.component.html'
+    moduleId: module.id,
+    selector: 'container-report',
+    templateUrl: './report.component.html'
 })
 
-export class ReportComponent{
-    
+export class ReportComponent {
+
 }

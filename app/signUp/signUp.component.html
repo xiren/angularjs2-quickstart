@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h1>Sign Up</h1>
+			<form (ngSubmit)="onCreate()" #signUpForm="ngForm">
+				<div class="form-group">
+					<label for="userName">UserName</label>
+					<input type="text" class="form-control" id="userName" required [(ngModel)]="model.userName" name="userName" #userName="ngModel">
+					<div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">
+						UserName is required
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" class="form-control" id="password" required [(ngModel)]="model.password" name="password" #password="ngModel">
+				</div>
+				<div class="form-group">
+					<label for="rePassword">Re-Password</label>
+					<input type="password" class="form-control" id="rePassword" [(ngModel)]="model.rePassword" name="rePassword" #rePassword="ngModel" [class.ng-invalid]="rePassword.value !== password.value">
+				</div>
+				<button class="btn btn-default btn-success" type="submit" [disabled]="!signUpForm.form.valid && rePassword.value !== password.value">Create</button>
+				<button type="button" class="btn btn-default" (click)="goBack()">Back</button>
+			</form>
+			
+		</div>
+	</div>
+</div>
